@@ -27,6 +27,12 @@ const iconsArr = [
     "/img/icon_snd_on.svg",
     "/img/icon_snd_off.svg"
 ];
+const musicTitlesArray = [
+    "Track 1 Title: ",
+    "Track 2 Title: ",
+    "Track 3 Title: ",
+];
+
 // Webcam image size. Must be 227. 
 const IMAGE_SIZE = 227;
 // K value for KNN
@@ -50,6 +56,7 @@ class Main {
         this.video = document.getElementById("input_video");
         this.video.setAttribute('autoplay', '');
         this.video.setAttribute('playsinline', '');
+        document.getElementById('output-selectors').querySelector('span').innerText = musicTitlesArray[0];
 
         // Add video element to DOM
         document.body.appendChild(this.video);
@@ -75,23 +82,28 @@ class Main {
             const vid1 = "/media/tester.mp4";
             const vid2 = "/media/flowers.mp4";
             const vid3 = "/media/tester.mp4";
+
             const container = document.getElementById('output_video');
             const source = document.getElementById('mp4video');
+            const title = document.getElementById('music-credit');
 
             // User clicked first thumbnail
             out1.addEventListener('click', function(event) {
                 source.setAttribute('src', vid1)
                 container.load(source);
+                title.innerText = musicTitlesArray[0];
             });
             // User clicked second thumbnail
             out2.addEventListener("click", function(event) {
                 source.setAttribute("src", vid2);
                 container.load(source);
+                title.innerText = musicTitlesArray[1];
             });
             // User clicked third thumnail
             out3.addEventListener("click", function(event) {
                 source.setAttribute("src", vid3);
                 container.load(source);
+                title.innerText = musicTitlesArray[2];
             });
             // Create info text
             const infoText = document.createElement('span');
@@ -183,20 +195,20 @@ class Main {
                     // If Confidence score > 50% 'light up' relevant btn and display meter value
                     // Play/Pause and UnMute/Mute function as toggles - so we need to set color of 
                     // opposite toggle back to (default) blue
-                    if (res.classIndex == 0 && res.confidences[i] >= .5) {
+                    if (res.classIndex == 0 && res.confidences[i] >= .8) {
                         document.getElementById("output_video").play();
                         document.getElementById("elem0").querySelector('button').style.backgroundColor = "orange";
                         document.getElementById("elem1").querySelector('button').style.backgroundColor = "#35D9FE";
-                    } else if (res.classIndex == 1 && res.confidences[i] >= .5) {
+                    } else if (res.classIndex == 1 && res.confidences[i] >= .8) {
                         document.getElementById("output_video").pause();
                         document.getElementById("elem1").querySelector('button').style.backgroundColor = "orange";
                         document.getElementById("elem0").querySelector('button').style.backgroundColor = "#35D9FE";
-                    } else if (res.classIndex == 2 && res.confidences[i] >= .5) {
+                    } else if (res.classIndex == 2 && res.confidences[i] >= .8) {
                         document.getElementById("output_video").volume = 1;
                         document.getElementById("output_video").muted = false;
                         document.getElementById("elem2").querySelector('button').style.backgroundColor = "orange";
                         document.getElementById("elem3").querySelector('button').style.backgroundColor = "#35D9FE";
-                    } else if (res.classIndex == 3 && res.confidences[i] >= .5) {
+                    } else if (res.classIndex == 3 && res.confidences[i] >= .8) {
                         document.getElementById("output_video").muted = true;
                         document.getElementById("elem3").querySelector('button').style.backgroundColor = "orange";
                         document.getElementById("elem2").querySelector('button').style.backgroundColor = "#35D9FE";

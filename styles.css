@@ -89,6 +89,7 @@
         li {
             float: left;
         }
+        /*----------LEARNING AREA ---------------*/
         
         ul#trainingBtns {
             position: absolute;
@@ -174,26 +175,39 @@
             padding: 0px;
             border-radius: 10px;
         }
+        /*----------OUTPUT AREA ---------------*/
         
         #output-selectors {
             display: block;
             position: absolute;
-            right: 0;
-            bottom: 180px;
-            width: 60%;
+            left: 17%;
+            bottom: 200px;
+            width: 64%;
             height: 50px;
-            text-align: center;
+            background: #232323;
+        }
+        
+        #output-selectors>ul {
+            float: right;
+        }
+        
+        #music-credit {
+            display: block;
+            color: white;
+            font-size: 1em;
+            width: 50%;
+            margin: 10px 0 0 10px;
             border: 0px solid yellow;
         }
         
         .thumbnail {
             display: block;
-            width: 50px;
+            width: 70px;
             height: 50px;
-            margin-left: 10px;
-            border: 0px solid white;
-            cursor: pointer;
+            margin-top: -32px;
+            margin-right: 10px;
             background: black;
+            cursor: pointer;
         }
         
         img {
