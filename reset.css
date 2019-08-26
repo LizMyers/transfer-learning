@@ -37,16 +37,22 @@ sub,
 sup,
 tt,
 var,
-b,
+
+/* b, */
+
 u,
 i,
 center,
 dl,
 dt,
 dd,
-ol,
+
+/* ol, */
+
 ul,
-li,
+
+/* li, */
+
 fieldset,
 form,
 label,
@@ -108,7 +114,9 @@ body {
     line-height: 1;
 }
 
-ol,
+
+/* ol, */
+
 ul {
     list-style: none;
 }
