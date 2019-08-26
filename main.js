@@ -17,28 +17,23 @@ import * as mobilenetModule from '@tensorflow-models/mobilenet';
 import * as tf from '@tensorflow/tfjs';
 import * as knnClassifier from '@tensorflow-models/knn-classifier';
 
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
-
 // Number of classes to classify
 const NUM_CLASSES = 4;
-const labelsArr = ["Play", "Pause", "Vol 100%", "Mute"];
+
+// Icons array for dynamically generated buttons
 const iconsArr = [
     "/img/icon_play.svg",
     "/img/icon_pause.svg",
     "/img/icon_snd_on.svg",
     "/img/icon_snd_off.svg"
 ];
-// Webcam Image size. Must be 227. 
+// Webcam image size. Must be 227. 
 const IMAGE_SIZE = 227;
 // K value for KNN
 const TOPK = 10;
 
-// Add Media File
-// const audio = new Audio('media/doorbell_mono.wav');
+// Add media file
 const output_video = document.getElementById("output_video");
-
-
 class Main {
     constructor() {
         // Initiate variables
@@ -52,7 +47,6 @@ class Main {
         this.bindPage();
 
         // Create video element that will contain the webcam image
-        //this.video = document.createElement('video');
         this.video = document.getElementById("input_video");
         this.video.setAttribute('autoplay', '');
         this.video.setAttribute('playsinline', '');
@@ -60,48 +54,45 @@ class Main {
         // Add video element to DOM
         document.body.appendChild(this.video);
 
-
-        // Create training buttons and info texts    
+        // Create training buttons and labels   
         for (let i = 0; i < NUM_CLASSES; i++) {
             const li = document.createElement('li');
             document.getElementById("trainingBtns").appendChild(li);
             li.style.padding = '10px';
             li.id = "elem" + i;
 
-            // Create training button
             const button = document.createElement('button');
             const img = document.createElement('img');
             img.src = iconsArr[i];
             li.appendChild(button);
             button.appendChild(img);
 
-            // Listen for mouse events when clicking the button
+            // Listen for button click (i.e. user is training actions 0 - 3) 
             button.addEventListener('mousedown', () => this.training = i);
             button.addEventListener('mouseup', () => this.training = -1);
 
-            //setup thumbnails
-            const vid1 = "/resources/mp4/tester.mp4";
-            const vid2 = "/resources/mp4/flowers.mp4";
-            const vid3 = "/resources/mp4/tester.mp4";
+            // Setup media thumbnail buttons
+            const vid1 = "/media/tester.mp4";
+            const vid2 = "/media/flowers.mp4";
+            const vid3 = "/media/tester.mp4";
             const container = document.getElementById('output_video');
             const source = document.getElementById('mp4video');
 
+            // User clicked first thumbnail
             out1.addEventListener('click', function(event) {
                 source.setAttribute('src', vid1)
                 container.load(source);
             });
-
-
+            // User clicked second thumbnail
             out2.addEventListener("click", function(event) {
                 source.setAttribute("src", vid2);
                 container.load(source);
             });
+            // User clicked third thumnail
             out3.addEventListener("click", function(event) {
                 source.setAttribute("src", vid3);
                 container.load(source);
             });
-
-
             // Create info text
             const infoText = document.createElement('span');
             infoText.innerText = " No examples added";
@@ -184,37 +175,28 @@ class Main {
                     // The number of examples for each class
                     const exampleCount = this.knn.getClassExampleCount();
 
-                    // Make the predicted class bold
-                    if (res.classIndex == i) {
-                        this.infoTexts[i].style.fontWeight = 'bold';
-                    } else {
-                        this.infoTexts[i].style.fontWeight = 'normal';
-                    }
-
                     // Update info text
                     if (exampleCount[i] > 0) {
                         this.infoTexts[i].innerText = ` ${exampleCount[i]} examples`;
                         document.getElementById('meter-text' + i).style.width = ` ${res.confidences[i] * 100}%`;
                     }
-                    //Do Something Based On Prediction
+                    // If Confidence score > 50% 'light up' relevant btn and display meter value
+                    // Play/Pause and UnMute/Mute function as toggles - so we need to set color of 
+                    // opposite toggle back to (default) blue
                     if (res.classIndex == 0 && res.confidences[i] >= .5) {
-                        console.log("Play the Video");
                         document.getElementById("output_video").play();
                         document.getElementById("elem0").querySelector('button').style.backgroundColor = "orange";
                         document.getElementById("elem1").querySelector('button').style.backgroundColor = "#35D9FE";
                     } else if (res.classIndex == 1 && res.confidences[i] >= .5) {
-                        console.log("Pause the Video");
                         document.getElementById("output_video").pause();
                         document.getElementById("elem1").querySelector('button').style.backgroundColor = "orange";
                         document.getElementById("elem0").querySelector('button').style.backgroundColor = "#35D9FE";
                     } else if (res.classIndex == 2 && res.confidences[i] >= .5) {
-                        console.log("Volume = 100%");
                         document.getElementById("output_video").volume = 1;
                         document.getElementById("output_video").muted = false;
                         document.getElementById("elem2").querySelector('button').style.backgroundColor = "orange";
                         document.getElementById("elem3").querySelector('button').style.backgroundColor = "#35D9FE";
                     } else if (res.classIndex == 3 && res.confidences[i] >= .5) {
-                        console.log("Mute the Audio")
                         document.getElementById("output_video").muted = true;
                         document.getElementById("elem3").querySelector('button').style.backgroundColor = "orange";
                         document.getElementById("elem2").querySelector('button').style.backgroundColor = "#35D9FE";
@@ -222,7 +204,7 @@ class Main {
                 }
             }
 
-            // Dispose image when done
+            // Dispose of images when done
             image.dispose();
             if (logits != null) {
                 logits.dispose();
