@@ -1,0 +1,1 @@
+value + (comp("Music").layer("Audio Amplitude").effect("Both Channels")("Slider")) / 5

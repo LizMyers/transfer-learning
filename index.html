@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lizs Teachable Machine</title>
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+    <script src="dist/build.js"></script>
+</head>
+
+<body>
+
+    <div id="stage-container">
+
+        <div id="output-container">
+
+            <div class="section-label"><span class="content">Output</span></div>
+
+            <video width="640" height="480" id="output_video">
+                    <source src="media/tester.mp4" id="mp4video" type="video/mp4">
+                    Your browser does not support the video tag.
+             </video>
+
+            <div id="output-selectors">
+                <ul>
+                    <li>
+                        <div id="out1" class="thumbnail"></div>
+                    </li>
+                    <li>
+                        <div id="out2" class="thumbnail"></div>
+                    </li>
+                    <li>
+                        <div id="out3" class="thumbnail"></div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="input-container">
+            <div class="section-label"><span class="content">Input</span></div>
+            <video id="input_video" width="250" height="250"></video><br />
+            <!-- <div id="flipBtn">flip</div> -->
+        </div>
+
+        <div id="training-container">
+            <div class="section-label"><span class="content">Learning</span></div>
+            <ul id="trainingBtns"></ul>
+        </div>
+
+    </div>
+    <!-- end stage-container -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+        body {
+            background: #dedede;
+            font-family: 'Rubik', sans-serif;
+            font-size: 13pt;
+            font-weight: normal;
+            line-height: 1.3em;
+            color: #454545;
+        }
+        
+        #stage-container {
+            background: #dedede;
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 650px;
+            left: 0px;
+            top: 0px;
+            overflow-x: hidden!important;
+        }
+        
+        #output-container {
+            background: #454545;
+            position: absolute;
+            display: block;
+            width: 60%;
+            height: 100%;
+            left: 0px;
+            top: 0px;
+        }
+        
+        #input-container {
+            background: #787878;
+            position: relative;
+            display: block;
+            width: 40%;
+            height: 100%;
+            left: 60%;
+            top: 0px;
+        }
+        
+        #training-container {
+            background: #232323;
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 110px;
+            right: 0px;
+            bottom: 0px;
+        }
+        
+        .section-label {
+            display: inline-block;
+            position: relative;
+            /* background: white; */
+            border: 1px dashed white;
+            /* opacity: 0.45; */
+            font-size: .85em;
+            font-weight: normal;
+            line-height: 1.5em;
+            letter-spacing: 2pt;
+            text-transform: uppercase;
+            color: white;
+            height: auto;
+            width: auto;
+            margin: 8px 0 0 8px;
+            text-align: center;
+            padding: 3px 10px 3px 10px;
+        }
+        
+        #input_video {
+            display: block;
+            position: relative;
+            margin: 7% 0 0 70%;
+            padding: 0;
+            height: 250px!important;
+            width: auto;
+            border: 4px solid white;
+            box-shadow: 0px 2px 2px #666;
+        }
+        
+        #output_video {
+            position: absolute;
+            width: 640px;
+            height: auto;
+            top: 12.5%;
+            left: 17%;
+        }
+        
+        li {
+            float: left!important;
+        }
+        
+        ul#trainingBtns {
+            position: absolute;
+            display: block;
+            width: 88%;
+            height: 80px;
+            left: 14%;
+            top: 0px;
+        }
+        
+        ul#trainingBtns li {
+            width: 19%;
+            height: 100%;
+            float: right;
+            list-style-type: none;
+            background: none;
+            border: 0px solid red;
+        }
+        
+        li span {
+            position: relative;
+            right: 0;
+            display: block;
+            font-size: 1em;
+            font-weight: normal;
+            margin: -70px 0 0px 76px;
+            text-align: left;
+            color: white;
+            padding: 2px;
+            opacity: .8;
+            width: 180px;
+            border: 0px solid white;
+        }
+        
+        button {
+            display: block;
+            position: relative;
+            margin-top: 6px;
+            padding: 0;
+            width: 70px;
+            height: 70px;
+            color: white;
+            text-align: center;
+            font-size: 1.2em;
+            border-radius: 50%;
+            background: white;
+            opacity: .95;
+            border: none;
+        }
+        
+        li button {
+            background: #35D9FE;
+            box-shadow: 3px 3px 6px #111;
+            border: none!important;
+            outline: none!important;
+        }
+        
+        li button:active,
+        li button:hover {
+            background: rgb(221, 207, 8)!important;
+            box-shadow: 0px 0px 0px #111;
+            border: none !important;
+            outline: none !important;
+        }
+        
+        .meter {
+            display: inline-block;
+            position: absolute;
+            margin: 6px 0 0 80px;
+            padding: 3px;
+            background: 121212;
+            height: 10px;
+            width: 170px;
+            border-radius: 10px;
+            box-shadow: -3px -3px 3px black;
+        }
+        
+        .meter .meterText {
+            background: orange;
+            width: 0%;
+            height: 5px;
+            margin: 0;
+            padding: 0px;
+            border-radius: 10px;
+        }
+        
+        #output-selectors {
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 150px;
+            width: 40%;
+            height: 50px;
+            text-align: center;
+            border: 0px solid yellow;
+        }
+        
+        .thumbnail {
+            display: block;
+            width: 50px;
+            height: 50px;
+            margin-left: 10px;
+            border: 0px solid white;
+            background: black;
+        }
+        
+        #flipBtn {
+            display: block;
+            position: relative;
+            margin: 51.5% 42.75% auto;
+            width: 100px;
+            height: 28px;
+            border-radius: 15px;
+            background: white;
+            color: black;
+            text-align: center;
+            line-height: 1.5em;
+            opacity: .65;
+            box-shadow: 3px 3px 3px #333;
+            cursor: pointer;
+        }
+        
+        #flipBtn:active {
+            box-shadow: 0px 0px 0px #333;
+            background: yellow;
+        }
+        
+        img {
+            border: 0;
+            width: 70%;
+            height: 70%;
+        }
+        
+        a,
+        a img {
+            outline: none
+        }
+        
+        .label {
+            color: white;
+            text-transform: capitalize;
+        }
+        
+        #header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+        }
+        
+        #credits {
+            position: absolute;
+            bottom: 180px;
+            left: 50px;
+            width: 100%!important;
+            height: 50px;
+        }
+        
+        ul#credits li {
+            width: 25%;
+            height: 120px;
+            padding: 4px;
+            border-left: 1px solid #cdcdcd;
+        }
+        
+        ul#credits li#instructions {
+            width: 40%;
+        }
