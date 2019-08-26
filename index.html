@@ -59,32 +59,30 @@
         <div id=left-col class="col">
             <h4>What is the Teachable Machine?</h4>
             <p>
-                Tensorflow JS allows you to capture images, train a neural network, and perform inference -- all from your local machine! In this case, we're using MobileNet (a pre-trained neural network) and extending it's image recognition powers with a technique called
-                <b>transfer learning</b> --which allows us to extend the model to include our own data. For a greater understanding of how this works, you can test Transfer Learing right here. Better still, take a look at the examples, and download the
-                boilerplate to build your own demo.
+                Tensorflow JS allows you to capture images, train a neural network, and perform inference -- all from your browser! In this case, we're using MobileNet (a pre-trained neural network) and extending it's data model with a technique called
+                <b>transfer learning</b>. For a greater understanding of how this works, let's give it a go.
             </p>
 
             <h4>Tutorial</h4>
-            <p>
-                <ol>
-                    <li>
-                        In this demo, we'll play a short video file. The actions you can assign to gestures include: 'play', 'pause', 'volume-on', 'volume-off'. Think of a separate pose or gesture for each of these.
-                    </li>
-                    <li><b>Press and hold each button down until you've captured at least 10 images</b> - (these are your training examples. Technically you will see the machine kick in and start associating the images with this gesture. Although you may
-                        be tempted to stop, keep holding the button down until you have about 30 examples. The more data (with slight variations on the same pose ), the more accurate your model will be.
-                    </li>
-                    <li>Repeat the same process with the remaining 3 buttons. <b>Remember, pressing the button activates the webcam only</b> -- <b>it does not mean you're playing or pausing the video directly</b>(It may look that way, but that's the machine
-                        responding to the gesture you're making. When using Tensorflow JS - training and inference are so fast, they're almost simultaneous!). </li>
-                    <li>
-                        Once you've trained the model, test your gestures again with one of the short videos. (Note: sometimes the confidence meter moves on more than one action at a time. That's because the computer thinks there is a chance you made the corresponding gesture.
-                        But it should settle on the gesture with the highest confidence score - another important concept in machine learning.)
-                    </li>
-                    <li><b>Want to start over? Simply refresh the browser.</b> At the end of your session, the images will be "dumped" and you're ready to retrain the Teachable Machine.</li>
-                </ol>
-            </p>
+
+            <ol>
+                <li>
+                    In this demo, we'll play a short video file. The actions you can assign to your own custom gestures include: 'play', 'pause', 'volume-on', 'volume-off'. Think of a simple pose or hand gesture for each of these.
+                </li>
+                <li><b>Press and hold each button down until you've captured at least 10 images</b> per button --these are your training examples. Technically you will see the machine kick in and start associating your gesture with the corresponding action.
+                    Although you may be tempted to stop, <b>keep holding the button down until you have about 30 examples</b>. The more data, with slight variations on the same pose, the more accurate your model will be.
+                </li>
+                <li>Repeat the same process with the remaining 3 buttons. <b>Remember, pressing the button activates the webcam only --it does not mean you're playing or pausing the video directly.</b> It may look that way, but that's the machine responding
+                    to the gesture you're making. <b>When using Tensorflow JS -- training and inference are so fast, they're almost simultaneous!</b> </li>
+                <li>
+                    Once you've trained the model, test your gestures again with one of the short videos. Sometimes the confidence meter moves on more than one action at a time. That's because the computer thinks there's a chance you made the corresponding gesture. But it
+                    should settle on the gesture with the highest <b>confidence score</b> -- another important concept in machine learning.
+                </li>
+                <li><b>Want to start over? Refresh the browser.</b> At the end of your session, the images will be "dumped" and you can retrain the Teachable Machine all over again. </li>
+            </ol>
 
         </div>
-        <!-- end left col -->
+
         <div id=right-col class="col">
             <h4>Liz's Project on GitHub</h4>
             <p>
@@ -97,15 +95,13 @@
 
             <p class="resources"><a href="https://github.com/googlecreativelab/teachable-machine-boilerplate" target="_blank">The Teachable Marchine Boilerplate</a> <br />(simplest starting point)</p>
 
-            <h4>Tensorflow JS &amp; Transfer Learning</h4>
+            <h4>The Science Behind Transfer Learning</h4>
             <p class="right-col-copy">
-                In order to provide speedy and lightweight performance, the Teachable Machine uses a technique called <b></b>transfer learning</b>. This means we take a previously trained model (in this case, MobileNet) and extend it's repertoire by supplying
-                new data to the model (your web cam images!) If you want to dive into makes image recognition so fast with MobileNet, the scientifc explanation is <a href="https://medium.com/@yu4u/why-mobilenet-and-its-variants-e-g-shufflenet-are-fast-1c7048b9618d"
-                    target="_blank">here</a>. </p>
+                Here's a good <a href="https://medium.com/@yu4u/why-mobilenet-and-its-variants-e-g-shufflenet-are-fast-1c7048b9618d" target="_blank">article</a>. explaining <b>why Transfer Learning is so fast</b>.
+            </p>
         </div>
-        <!-- end right col -->
+
     </div>
-    <!-- end story-container -->
 </body>
 
 </html>

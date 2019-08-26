@@ -95,14 +95,13 @@
             display: block;
             width: 88%;
             height: 80px;
-            left: -1%!important;
+            left: 16%;
             top: 0px;
         }
         
         ul#trainingBtns li {
             width: 19%;
             height: 100%;
-            float: right;
             list-style-type: none;
             background: none;
             border: 0px solid red;
@@ -137,6 +136,7 @@
             background: white;
             opacity: .95;
             border: none;
+            cursor: pointer;
         }
         
         li button {
@@ -179,8 +179,8 @@
             display: block;
             position: absolute;
             right: 0;
-            bottom: 150px;
-            width: 40%;
+            bottom: 180px;
+            width: 60%;
             height: 50px;
             text-align: center;
             border: 0px solid yellow;
@@ -192,6 +192,7 @@
             height: 50px;
             margin-left: 10px;
             border: 0px solid white;
+            cursor: pointer;
             background: black;
         }
         
@@ -226,6 +227,7 @@
             margin: 45% 10% auto;
             margin-bottom: 200px;
             width: 80%;
+            border: 0px solid red;
         }
         
         #left-col {
