@@ -27,10 +27,15 @@ const iconsArr = [
     "/img/icon_snd_on.svg",
     "/img/icon_snd_off.svg"
 ];
-const musicTitlesArray = [
-    "Track 1 Title: ",
-    "Track 2 Title: ",
-    "Track 3 Title: ",
+const playList = [
+    "VwVg9jCtqaU",
+    "lEljKc9ZtU8", 
+    "D7ZL45xS39I"
+];
+const playListTitles = [
+    "Machine Learning Zero to Hero", 
+    "Getting Started with Tensorflow 2.0", 
+    "Tensorflow Magic for Your JS App"
 ];
 
 // Webcam image size. Must be 227. 
@@ -56,7 +61,7 @@ class Main {
         this.video = document.getElementById("input_video");
         this.video.setAttribute('autoplay', '');
         this.video.setAttribute('playsinline', '');
-        document.getElementById('output-selectors').querySelector('span').innerText = musicTitlesArray[0];
+        document.getElementById('output-selectors').querySelector('span').innerText = playListTitles[0];
 
         // Add video element to DOM
         document.body.appendChild(this.video);
@@ -78,32 +83,24 @@ class Main {
             button.addEventListener('mousedown', () => this.training = i);
             button.addEventListener('mouseup', () => this.training = -1);
 
-            // Setup media thumbnail buttons
-            const vid1 = "/media/tester.mp4";
-            const vid2 = "/media/flowers.mp4";
-            const vid3 = "/media/tester.mp4";
-
             const container = document.getElementById('output_video');
             const source = document.getElementById('mp4video');
-            const title = document.getElementById('music-credit');
+            const title = document.getElementById('video-title');
 
             // User clicked first thumbnail
-            out1.addEventListener('click', function(event) {
-                source.setAttribute('src', vid1)
-                container.load(source);
-                title.innerText = musicTitlesArray[0];
+            vid1.addEventListener('click', function(event) {
+                player.loadVideoById(playList[0]);
+                title.innerText = playListTitles[0];
             });
             // User clicked second thumbnail
-            out2.addEventListener("click", function(event) {
-                source.setAttribute("src", vid2);
-                container.load(source);
-                title.innerText = musicTitlesArray[1];
+            vid2.addEventListener("click", function(event) {
+                player.loadVideoById(playList[1]);
+                title.innerText = playListTitles[1];
             });
             // User clicked third thumnail
-            out3.addEventListener("click", function(event) {
-                source.setAttribute("src", vid3);
-                container.load(source);
-                title.innerText = musicTitlesArray[2];
+            vid3.addEventListener("click", function(event) {
+                player.loadVideoById(playList[2]);
+                title.innerText = playListTitles[2];
             });
             // Create info text
             const infoText = document.createElement('span');
@@ -192,24 +189,23 @@ class Main {
                         this.infoTexts[i].innerText = ` ${exampleCount[i]} examples`;
                         document.getElementById('meter-text' + i).style.width = ` ${res.confidences[i] * 100}%`;
                     }
-                    // If Confidence score > 50% 'light up' relevant btn and display meter value
+                    // If Confidence score > 80% 'light up' relevant btn and display meter value
                     // Play/Pause and UnMute/Mute function as toggles - so we need to set color of 
                     // opposite toggle back to (default) blue
                     if (res.classIndex == 0 && res.confidences[i] >= .8) {
-                        document.getElementById("output_video").play();
+                        player.playVideo();
                         document.getElementById("elem0").querySelector('button').style.backgroundColor = "orange";
                         document.getElementById("elem1").querySelector('button').style.backgroundColor = "#35D9FE";
                     } else if (res.classIndex == 1 && res.confidences[i] >= .8) {
-                        document.getElementById("output_video").pause();
+                        player.pauseVideo();
                         document.getElementById("elem1").querySelector('button').style.backgroundColor = "orange";
                         document.getElementById("elem0").querySelector('button').style.backgroundColor = "#35D9FE";
                     } else if (res.classIndex == 2 && res.confidences[i] >= .8) {
-                        document.getElementById("output_video").volume = 1;
-                        document.getElementById("output_video").muted = false;
+                        player.unMute();
                         document.getElementById("elem2").querySelector('button').style.backgroundColor = "orange";
                         document.getElementById("elem3").querySelector('button').style.backgroundColor = "#35D9FE";
                     } else if (res.classIndex == 3 && res.confidences[i] >= .8) {
-                        document.getElementById("output_video").muted = true;
+                        player.mute();
                         document.getElementById("elem3").querySelector('button').style.backgroundColor = "orange";
                         document.getElementById("elem2").querySelector('button').style.backgroundColor = "#35D9FE";
                     }

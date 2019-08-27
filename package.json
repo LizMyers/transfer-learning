@@ -1,5 +1,5 @@
 {
-  "name": "cl-teachable-machine-boilerplate",
+  "name": "teachable-machine",
   "version": "0.1.0",
   "license": "ISC",
   "dependencies": {
@@ -44,5 +44,20 @@
   },
   "description": "This is a small boilerplate project that demonstrates how to use [tensorflow.js](https://github.com/tensorflow/tfjs-models) to create projects like [Teachable Machine](https://teachablemachine.withgoogle.com/). The code shows how you can create a KNN classifier that can be trained live in the browser on a webcam image. It is intentionally kept very simple so it can provide a starting point for new projects.",
   "main": "main.js",
-  "author": ""
+  "author": "Liz Myers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://LizMyers@github.com/LizMyers/transfer-learning.git"
+  },
+  "keywords": [
+    "machine",
+    "learning",
+    "ai",
+    "tensorflow",
+    "tensorflowjs"
+  ],
+  "bugs": {
+    "url": "https://github.com/LizMyers/transfer-learning/issues"
+  },
+  "homepage": "https://github.com/LizMyers/transfer-learning#readme"
 }

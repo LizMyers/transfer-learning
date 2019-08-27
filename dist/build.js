@@ -34,7 +34,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 // Number of classes to classify
-var NUM_CLASSES = 3;
+var NUM_CLASSES = 4;
 // Webcam Image size. Must be 227. 
 var IMAGE_SIZE = 227;
 // K value for KNN
@@ -138,7 +138,7 @@ var Main = function () {
       if (this.timer) {
         this.stop();
       }
-      this.video.play();
+      //this.video.play();
       this.timer = requestAnimationFrame(this.animate.bind(this));
     }
   }, {
