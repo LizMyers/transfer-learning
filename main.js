@@ -27,11 +27,15 @@ const iconsArr = [
     "/img/icon_snd_on.svg",
     "/img/icon_snd_off.svg"
 ];
+
+// YouTube playlist (video IDs)
 const playList = [
     "VwVg9jCtqaU",
     "lEljKc9ZtU8", 
     "D7ZL45xS39I"
 ];
+
+// Corresponding titles
 const playListTitles = [
     "Machine Learning Zero to Hero", 
     "Getting Started with Tensorflow 2.0", 
