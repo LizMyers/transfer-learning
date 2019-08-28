@@ -22,23 +22,23 @@ const NUM_CLASSES = 4;
 
 // Icons array for dynamically generated buttons
 const iconsArr = [
-    "/img/icon_play.svg",
-    "/img/icon_pause.svg",
-    "/img/icon_snd_on.svg",
-    "/img/icon_snd_off.svg"
+    "icon_play.svg",
+    "icon_pause.svg",
+    "icon_snd_on.svg",
+    "icon_snd_off.svg"
 ];
 
 // YouTube playlist (video IDs)
 const playList = [
     "VwVg9jCtqaU",
-    "lEljKc9ZtU8", 
+    "lEljKc9ZtU8",
     "D7ZL45xS39I"
 ];
 
 // Corresponding titles
 const playListTitles = [
-    "Machine Learning Zero to Hero", 
-    "Getting Started with Tensorflow 2.0", 
+    "Machine Learning Zero to Hero",
+    "Getting Started with Tensorflow 2.0",
     "Tensorflow Magic for Your JS App"
 ];
 
